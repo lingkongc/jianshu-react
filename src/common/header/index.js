@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import { connect } from 'react-redux';
 import {
   HeaderWrapper,
   Logo,
@@ -10,58 +11,55 @@ import {
   Button
 } from "./style";
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchFocused: false
-    };
+const Header = (props) => (
+  <HeaderWrapper>
+    <Logo href="/" />
+    <Nav>
+      <NavItem className="left active">首页</NavItem>
+      <NavItem className="left">下载App</NavItem>
+      <NavItem className="right">登陆</NavItem>
+      <NavItem className="right">
+        <i className="iconfont">&#xe6b1;</i>
+      </NavItem>
+      <SearchWrapper>
+        <NavSearch
+          className={props.searchFocus ? "is-focus" : ""}
+          onFocus={props.handleInputFocus}
+          onBlur={props.handleInputBlur}
+        />
+        <i className="iconfont icon-fangdajing"></i>
+      </SearchWrapper>
 
-    this.handleInputFocus = this.handleInputFocus.bind(this);
-    this.handleInputBlur = this.handleInputBlur.bind(this);
+    </Nav>
+    <Addition>
+      <Button className="writting iconfont">&#xe645; 写文章</Button>
+      <Button className="reg">注册</Button>
+    </Addition>
+  </HeaderWrapper>
+);
+
+
+const mapStateToProps = (state) => {
+  return {
+    searchFocus: state.searchFocus
   }
-  render() {
-    return (
-      <HeaderWrapper>
-        <Logo href="/" />
-        <Nav>
-          <NavItem className="left active">首页</NavItem>
-          <NavItem className="left">下载App</NavItem>
-          <NavItem className="right">登陆</NavItem>
-          <NavItem className="right">
-            <i className="iconfont">&#xe6b1;</i>
-          </NavItem>
-          <SearchWrapper>
-            <NavSearch
-              className={this.state.searchFocused ? "is-focus" : ""}
-              onFocus={this.handleInputFocus}
-              onBlur={this.handleInputBlur}
-            />
-            <i className="iconfont icon-fangdajing"></i>
-          </SearchWrapper>
-
-        </Nav>
-        <Addition>
-          <Button className="writting iconfont">&#xe645; 写文章</Button>
-          <Button className="reg">注册</Button>
-        </Addition>
-      </HeaderWrapper>
-    );
-  }
-
-  handleInputFocus(e) {
-    this.setState({
-      searchFocused: true
-    })
-  }
-
-  handleInputBlur(e) {
-    this.setState({
-      searchFocused: false
-    })
-  }
-
-
 }
 
-export default Header;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleInputBlur() {
+      const action = {
+        type: 'search_blur'
+      };
+      dispatch(action);
+    },
+    handleInputFocus() {
+      const action = {
+        type: 'search_focus'
+      };
+      dispatch(action);
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

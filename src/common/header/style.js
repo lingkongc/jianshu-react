@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 import logoPic from "../../statics/logo.png";
 
-export const HeaderWrapper = styled.div `
+export const HeaderWrapper = styled.div`
   position: relative;
   height: 56px;
   border-bottom: 1px solid #f0f0f0;
-  overflow: hidden;
 `;
 
-export const Logo = styled.a `
+export const Logo = styled.a`
   position: absolute;
   top: 0;
   left: 0;
@@ -22,14 +21,14 @@ export const Logo = styled.a `
   background-size: contain;
 `;
 
-export const Nav = styled.div `
+export const Nav = styled.div`
   margin: 0 240px 0 240px;
   max-width: 100%;
   height: 100%;
   ${"" /* margin: 0 auto; */}
 `;
 
-export const NavItem = styled.div `
+export const NavItem = styled.div`
   line-height: 56px;
   padding: 0 15px;
   color: #333;
@@ -46,13 +45,12 @@ export const NavItem = styled.div `
   }
 `;
 
-export const SearchWrapper = styled.div `
+export const SearchWrapper = styled.div`
   position: relative;
   float: left;
   margin: 10px 0 0 20px;
   padding: 0 36px 0 20px;
   height: 36px;
-  overflow: hidden;
   background: #eeeeee;
   border-radius: 18px;
   .iconfont {
@@ -66,7 +64,7 @@ export const SearchWrapper = styled.div `
 `;
 
 export const NavSearch = styled.input.attrs({
-  placeholder: '搜索'
+  placeholder: "搜索"
 })`
   box-sizing: border-box;
   max-width: 100px;
@@ -80,16 +78,16 @@ export const NavSearch = styled.input.attrs({
   &::placeholder {
     color: #999999;
   }
-  &.is-focus{
+  &.is-focus {
     max-width: 200px;
-    & + .iconfont{
+    & + .iconfont {
       color: #ffffff;
       background-color: #999999;
     }
   }
 `;
 
-export const Addition = styled.div `
+export const Addition = styled.div`
   position: absolute;
   right: 0;
   top: 0;
@@ -97,7 +95,7 @@ export const Addition = styled.div `
   background: 56px;
 `;
 
-export const Button = styled.div `
+export const Button = styled.div`
   float: right;
   margin: 10px 10px 0;
   padding: 0 20px;
@@ -113,4 +111,50 @@ export const Button = styled.div `
     color: #fff;
     background: #ec6149;
   }
+`;
+
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 56px;
+  width: 240px;
+  padding: 0 20px;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  &:before {
+    position: relative;
+    display: block;
+    content: "";
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    transform: rotate(45deg);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+  }
+`;
+
+export const SearchInfoTitle = styled.div`
+  margin: 20px 0 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`;
+
+export const SearchInfoSwitch = styled.div`
+  float: right;
+  font-size: 13px;
+`;
+
+export const SearchInfoItem = styled.a`
+  display: inline-block;
+  margin: 0 10px 15px 0;
+  line-height: 20px;
+  padding: 0 5px;
+  font-size: 12px;
+  border: 1px solid #dddddd;
+  color: #787878;
+  border-radius: 3px;
+  cursor: pointer;
 `;

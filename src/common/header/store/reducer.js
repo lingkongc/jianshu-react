@@ -9,15 +9,14 @@ const defaultState = fromJS({
 });
 
 export default (state = defaultState, action) => {
-  if (action.type === actionTypes.SEARCH_FOCUS) {
-    // immutable对象set方法，返回一个新对象
-    return state.set("searchFocus", true);
+  switch (action.type) {
+    case actionTypes.SEARCH_FOCUS:
+      return state.set("searchFocus", true);
+    case actionTypes.SEARCH_BLUR:
+      return state.set("searchFocus", false);
+    case actionTypes.CHANGE_LIST:
+      return state.set('list', action.data);
+    default:
+      return state
   }
-  if (action.type === actionTypes.SEARCH_BLUR) {
-    return state.set("searchFocus", false);
-  }
-  if (action.type === actionTypes.CHANGE_LIST) {
-    return state.set('list',action.data)
-  }
-  return state;
 };

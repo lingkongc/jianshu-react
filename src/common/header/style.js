@@ -22,8 +22,8 @@ export const Logo = styled.a`
 `;
 
 export const Nav = styled.div`
-  margin: 0 240px 0 240px;
-  max-width: 100%;
+  margin: 0 auto;
+  max-width: 960px;
   height: 100%;
 `;
 

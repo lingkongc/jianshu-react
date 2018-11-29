@@ -1,23 +1,31 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {
     ListItem,
     ListInfo,
-    ListMeta
+    ListMeta,
+    LoadMore
 } from '../style';
+import {actionCreators} from '../store/';
 
-class List extends Component {
+class List extends PureComponent {
     render() {
-        const {list} = this.props;
+        const {list, getMoreList, page} = this.props;
         return (
             <div>
                 {
                     list.map((item) => (
                         <ListItem key={item.get('id')}>
-                            <img src={item.get('imgUrl')} alt={item.get('title')}/>
+                            <Link to="/detail">
+                                <img src={item.get('imgUrl')} alt={item.get('title')}/>
+                            </Link>
+
                             <ListInfo>
-                                <h3>{item.get('title')}</h3>
-                                <p>{item.get('desc')}</p>
+                                <Link to="/detail" style={{textDecoration: "none", color: "rgb(70, 70, 70)"}}>
+                                    <h3>{item.get('title')}</h3>
+                                    <p>{item.get('desc')}</p>
+                                </Link>
                                 <ListMeta>
                                     <span>{item.get('nickname')}</span>
                                     <span>{item.get('comment')}</span>
@@ -27,12 +35,19 @@ class List extends Component {
                         </ListItem>
                     ))
                 }
+                <LoadMore onClick={() => getMoreList(page)}>阅读更多</LoadMore>
             </div>
         )
     }
 }
 
 const mapState = (state) => ({
-    list: state.getIn(['home', 'articleList'])
+    list: state.getIn(['home', 'articleList']),
+    page: state.getIn(['home', 'articlePage'])
 });
-export default connect(mapState, null)(List);
+const mapDispatch = dispatch => ({
+    getMoreList(page) {
+        dispatch(actionCreators.getMoreList(page))
+    }
+})
+export default connect(mapState, mapDispatch)(List);

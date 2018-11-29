@@ -1,6 +1,7 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import {actionCreators} from "./store/";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {actionCreators} from './store/';
 import {
     HeaderWrapper,
     Logo,
@@ -14,7 +15,7 @@ import {
     SearchInfoTitle,
     SearchInfoSwitch,
     SearchInfoItem
-} from "./style";
+} from './style';
 
 class Header extends Component {
     getListArea() {
@@ -55,7 +56,9 @@ class Header extends Component {
         const {list, searchFocus, mouseIn, handleInputBlur, handleInputFocus} = this.props;
         return (
             <HeaderWrapper>
-                <Logo href="/"/>
+                <Link to="/">
+                    <Logo/>
+                </Link>
                 <Nav>
                     <NavItem className="left active">首页</NavItem>
                     <NavItem className="left">下载App</NavItem>

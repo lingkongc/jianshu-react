@@ -13,7 +13,9 @@ export const HomeMain = styled.div`
     float: left;
     width: 625px;
     img{
+        height: 270px;
         max-width: 100%;
+        border-radius: 4px;
     }
 `;
 
@@ -24,7 +26,6 @@ export const HomeSide = styled.div`
     float: right;
     width: 335px;
     height: 100px;
-    background: #cccccc;
 `;
 
 export const TopicWrapper = styled.div`
@@ -75,6 +76,22 @@ export const ListItem = styled.div`
       }
 `;
 
+export const LoadMore = styled.div`
+    margin: 30px 0;
+    max-width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgb(180,180,180);
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    &:hover{
+        background-color: rgb(130,130,130);
+    }
+`;
+
 export const ListInfo = styled.div`
     h3{
         padding-bottom: 10px;
@@ -98,3 +115,67 @@ export const ListMeta = styled.div`
     }
 `;
 
+// 推荐
+export const RecommendWrapper = styled.div`
+    margin-bottom: 15px;
+`;
+
+export const RecommendItem = styled.a`
+    display:block;
+    margin-bottom: 5.5px;
+    height: 50px;
+    border-radius: 4px;
+    background-size: contain;
+    // background-color: rgb(130,130,130);
+    background-image: url(${(props) => props.imgUrl});
+    cursor: pointer;
+`;
+
+// 作者推荐
+export const WriterWrapper = styled.div`
+    
+`;
+
+export const WriterItem = styled.div`
+    overflow: hidden;
+    h4{
+        margin-top: 5px;
+        font-size: 14px;
+    }
+    p{
+        margin-top: 10px;
+        color: rgb(130,130,130);
+        font-size: 12px;
+    }
+    img{
+        float: left;
+        margin-right: 10px;
+        height: 48px;
+        width: 48px;
+        border-radius: 50%;
+        border: 1px solid rgb(230,230,230);
+    }
+    span{
+        float: right;
+        margin-top: 5px;
+        font-size: 13px;
+        color: #42c02e;
+    }
+    .desc{
+        float: left;
+    }
+`;
+
+export const BackTop = styled.div`
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgb(220,220,220);
+    font-size: 60px;
+    line-height: 58px;
+    text-align: center;
+    color: rgb(130,130,130);
+    cursor: pointer;
+`;

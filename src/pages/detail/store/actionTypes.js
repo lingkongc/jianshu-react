@@ -1,0 +1,1 @@
+export const CHNAGE_DETAIL = 'detail/change_detail';

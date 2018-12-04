@@ -59,6 +59,7 @@ export const SearchWrapper = styled.div`
     color: #999999;
     padding: 5px;
     border-radius: 50%;
+    cursor: pointer;
   }
 `;
 

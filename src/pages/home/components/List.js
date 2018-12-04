@@ -17,12 +17,13 @@ class List extends PureComponent {
                 {
                     list.map((item) => (
                         <ListItem key={item.get('id')}>
-                            <Link to="/detail">
+                            <Link to={`/detail/${item.get('id')}`}>
                                 <img src={item.get('imgUrl')} alt={item.get('title')}/>
                             </Link>
 
                             <ListInfo>
-                                <Link to="/detail" style={{textDecoration: "none", color: "rgb(70, 70, 70)"}}>
+                                <Link to={`/detail/${item.get('id')}`}
+                                      style={{textDecoration: "none", color: "rgb(70, 70, 70)"}}>
                                     <h3>{item.get('title')}</h3>
                                     <p>{item.get('desc')}</p>
                                 </Link>

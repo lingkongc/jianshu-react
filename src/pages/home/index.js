@@ -24,6 +24,7 @@ class Home extends PureComponent {
     }
 
     handleScrollTop() {
+
         window.scrollTo(0, 0);
     }
 

@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import List from './components/List';
+import Header from '../../common/header';
 import Recommend from './components/Recommend';
 import Topic from './components/Topic';
 import Writer from './components/Writer';
@@ -36,6 +37,7 @@ class Home extends PureComponent {
         const {showScroll} = this.props;
         return (
             <div>
+                <Header/>
                 <HomeWrapper>
                     <HomeMain>
                         <img

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import Header from '../../common/header';
 import {connect} from 'react-redux';
 import {actionCreators} from './store';
-import {DetailWrapper, Header, Content} from "./style";
+import {DetailWrapper, Header as DetailHeader, Content} from "./style";
 
 
 class Detail extends Component {
@@ -9,8 +10,9 @@ class Detail extends Component {
         const {title, content} = this.props;
         return (
             <div>
+                <Header/>
                 <DetailWrapper>
-                    <Header>{title}</Header>
+                    <DetailHeader>{title}</DetailHeader>
                     <Content dangerouslySetInnerHTML={{__html: content}}/>
                 </DetailWrapper>
             </div>

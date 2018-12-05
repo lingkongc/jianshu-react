@@ -10,7 +10,7 @@ export const changeDetail = (title, content) => ({
 
 export const getDetail = (id) => {
     return (dispatch) => {
-        axios.get(`./api/detail.json?id=${id}`)
+        axios.get(`/api/detail.json?id=${id}`)
             .then((res) => {
                 const result = res.data.data;
                 // 派发action

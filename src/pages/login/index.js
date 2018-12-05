@@ -51,6 +51,6 @@ const mapDispatch = (dispatch) => ({
         const action = actionCreators.handleLogin(accountElem.value, passwordElem.value);
         dispatch(action);
     }
-})
+});
 
 export default connect(mapState, mapDispatch)(Login);

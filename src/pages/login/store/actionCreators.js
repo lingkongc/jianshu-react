@@ -4,12 +4,12 @@ import * as actionTypes from './actionTypes';
 const changeLogin = () => ({
     type: actionTypes.CHNAGE_LOGIN,
     value: true
-})
+});
 
 export const logout = () => ({
     type: actionTypes.LOGOUT,
     value: false
-})
+});
 
 
 export const handleLogin = (account, password) => {
@@ -22,6 +22,8 @@ export const handleLogin = (account, password) => {
                 } else {
                     alert('登录失败');
                 }
-            })
+            }).catch(() => {
+
+        })
     }
-}
+};
